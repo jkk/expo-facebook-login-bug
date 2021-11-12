@@ -17,7 +17,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.jkkramer.expo-login-test"
     },
     "android": {
       "adaptiveIcon": {
