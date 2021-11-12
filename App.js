@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Alert, Pressable, StyleSheet, Text, View, Linking } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as Facebook from "expo-facebook";
 
@@ -17,6 +17,16 @@ export default function App() {
       Alert.alert(`${err.name}: ${err.message}`);
     }
   }
+
+  React.useEffect(() => {
+    let handleUrl = (evt) => {
+      // Logs the return URL when Facebook completes login. This should be
+      // handled by the Facebook SDK and not show up here.
+      console.log(evt.url);
+    };
+    Linking.addEventListener("url", handleUrl);
+    return () => Linking.removeAllListeners("url");
+  }, []);
 
   return (
     <View style={styles.container}>
