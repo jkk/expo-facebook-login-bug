@@ -20,6 +20,11 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.jkkramer.expo-login-test"
     },
+    "facebookScheme": "fb1310861962685645",
+    "facebookAppId": "1310861962685645",
+    "facebookDisplayName": "Expo Login Test",
+    "facebookAutoLogAppEventsEnabled": false,
+    "facebookAdvertiserIDCollectionEnabled": false,
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
