@@ -14,6 +14,8 @@
 #import <React/RCTLinkingManager.h>
 #import <React/RCTConvert.h>
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 #if defined(FB_SONARKIT_ENABLED) && __has_include(<FlipperKit/FlipperClient.h>)
 #import <FlipperKit/FlipperClient.h>
 #import <FlipperKitLayoutPlugin/FlipperKitLayoutPlugin.h>
@@ -94,6 +96,9 @@ static void InitializeFlipper(UIApplication *application) {
 
 // Linking API
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+  if ([[FBSDKApplicationDelegate sharedInstance] application:application openURL:url options:options]) {
+    return YES;
+  }
   #if defined(EX_DEV_LAUNCHER_ENABLED)
   if ([EXDevLauncherController.sharedInstance onDeepLink:url options:options]) {
     return true;
